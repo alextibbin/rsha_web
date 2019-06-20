@@ -1,0 +1,14 @@
+#!/bin/bash
+
+APACHE2=$(dpkg-query -W -f='${Status}' mysql-server-5.7 2>/dev/null | grep -c "ok install")
+if [ $mysql -eq 0 ];
+then
+
+	echo "mysql installeerimine"
+	sudo apt-get install mysql-server-5.7 -y;
+elif [ $mysql -eq 1 ];
+then
+
+	echo "mysql on installeeritud"
+	mysql -v
+fi
